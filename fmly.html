@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Members</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background-color: #E6CFC8;
+            color: #212529;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #688b50;
+            text-align: left;
+            padding: 1em;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            width: 150px;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-spacing: 20px;
+        }
+
+        td {
+            vertical-align: top;
+        }
+
+        nav,
+        section,
+        aside {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            width: 200px;
+            background-color: #304224;
+            padding: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 0;
+            display: block;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #868e96;
+        }
+
+        h2 {
+            color: #6D412A;
+            text-align: center;
+            font-family: 'Georgia', serif;
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #family-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+
+        #family-grid div {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #ddd;
+        }
+
+        #family-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #family-grid p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #688b50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background-color: #304224;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="yangariflogo.jpg" alt="Logo">
+    </header>
+
+    <table>
+        <tr>
+            <td>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="background.html">Background</a>
+                    <a href="education.html">Education</a>
+                    <a href="family.html">Family Members</a>
+                    <a href="friends.html">Friends</a>
+                    <a href="hobby.html">Hobby</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="aboutme.html">About Me</a>
+                    <a href="contact.html">Contact Me</a>
+                </nav>
+            </td>
+            <td>
+                <section id="Family Members">
+                    <h2>My Family Members</h2>
+                    <p>"In the heart of our small family, my mom is the strong backbone, supported by the loving care of my late grandmother and aunties, who played vital roles in raising me. My childhood was shaped by my grandmother's wisdom and my aunts' nurturing presence. My mom, with her unwavering commitment, emerged as the cornerstone, balancing the responsibilities of parenthood. Throughout this journey, my cousin became a constant companion, and together, we navigated life's highs and lows, building a friendship that goes beyond the typical cousin relationship. I am grateful for the interconnected relationships that shaped me. Our small but mighty family is a sanctuary of love, understanding, and enduring connections."</p>
+                    <div id="family-grid">
+                        <div>
+                            <img src="marfuzah.jpeg" alt="Mother">
+                            <p>Marfuzah Md Isa</p>
+                        </div>
+                        <div>
+                            <img src="me.jpeg" alt="Me">
+                            <p>Mohamad Arif</p>
+                        </div>
+                        <div>
+                            <img src="nasuha.jpeg" alt="Cousin">
+                            <p>Nasuha Md Noor</p>
+                        </div>
+                        <div>
+                            <img src="nabila.jpeg" alt="Cousin">
+                            <p>Nabila Md Noor</p>
+                        </div>
+                        <div>
+                            <img src="izni.jpeg" alt="Cousin">
+                            <p>Izni Md Nasir</p>
+                        </div>
+                        <div>
+                            <img src="izz.jpeg" alt="Cousin">
+                            <p>Izz Mirza Md Nasir</p>
+                        </div>
+                    </div>
+                </section>
+            </td>
+            <td>
+                <aside id="widget">
+                    <h2>Widget</h2>
+                    <div id="clock"></div>
+                    <div id="calendar"></div>
+                </aside>
+            </td>
+        </tr>
+    </table>
+
+    <audio controls autoplay>
+        <source src="copingpiano.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
+
+    <script>
+        // Function to update clock and calendar
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').innerHTML = `${hours}:${minutes}:${seconds}`;
+
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            const month = monthNames[now.getMonth()];
+            const day = now.getDate();
+            const year = now.getFullYear();
+            const dayName = dayOfWeek[now.getDay()];
+
+            document.getElementById('calendar').innerHTML = `${dayName}, ${month} ${day}, ${year}`;
+        }
+
+        // Set interval to update clock every second
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Back to Top Button Script
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+
+</html>
+

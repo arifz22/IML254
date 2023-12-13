@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  #back-to-top:hover {
+    background-color: #005a8c;
+  }
+  
+  /* Show the back to top button when the URL has the #top fragment identifier */
+  body:target #back-to-top {
+    display: block;
+  }
+  
+  /* Style the anchor link with a target fragment identifier */
+  a[href="#top"] {
+    display: none;
+  }
+  

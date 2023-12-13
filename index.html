@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background-color: #E6CFC8;
+            color: #212529;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-bottom: 30px; 
+        }
+
+header {
+    background-color: #688b50;
+    text-align: center; /* Center align the text */
+    padding: 1em;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    color: #fff; /* Change text color to white */
+}
+
+header div {
+    margin: 0 auto; /* Center the inner div horizontally */
+}
+
+header h1 {
+    margin: 0; /* Remove default margin for h1 */
+}
+
+header p {
+    margin: 0;
+    font-size: 16px; /* Adjust the font size for the slogan */
+}
+
+        header img {
+            width: 150px;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-spacing: 20px;
+        }
+
+        td {
+            vertical-align: top;
+        }
+
+        nav,
+        section,
+        aside {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            width: 200px;
+            background-color: #304224;
+            padding: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 0;
+            display: block;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #868e96;
+        }
+
+        h2 {
+            color: #6D412A;
+	    text-align: center;
+	    font-family: 'Georgia', serif;
+
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #home {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img src="yangariflogo.jpg" alt="Logo">
+    <div>
+        <h1>Yang Arif</h1>
+        <p>"Arif's Boundless Horizon: A Never-Ending of Exploration and Discovery"</p>
+    </div>
+</header>
+
+
+    <table>
+        <tr>
+            <td>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="background.html">Background</a>
+                    <a href="education.html">Education</a>
+                    <a href="family.html">Family Members</a>
+                    <a href="friends.html">Friends</a>
+                    <a href="hobby.html">Hobby</a>
+                    <a href="gallery.html">Gallery</a>
+		    <a href="aboutme.html">About Me</a>
+                    <a href="contact.html">Contact Me</a>
+                </nav>
+            </td>
+            <td>
+                <section id="Home">
+                    <h2>Home</h2>
+                  
+                    <div class="slider-container">
+                        <div class="mySlides">
+                            <img src="photoslider1.jpg" alt="Image 1">
+                        </div>
+                        <div class="mySlides">
+                            <img src="photoslider2.jpg" alt="Image 2">
+                        </div>
+                        <div class="mySlides">
+                            <img src="photoslider3.jpg" alt="Image 3">
+                        </div>
+                        <div class="mySlides">
+                            <img src="photoslider4.jpg" alt="Image 3">
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                </section>
+            </td>
+            <td>
+                <aside id="widget">
+                    <h2>Widget</h2>
+                    <div id="clock"></div>
+                    <div id="calendar"></div>
+                </aside>
+            </td>
+        </tr>
+    </table>
+
+<audio controls autoplay>
+  <source src="copingpiano.mp3" type="audio/mp3">
+Your browser does not support the audio element.
+</audio>
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+
+            setTimeout(showSlides, 6000);
+        }
+
+        function plusSlides(n) {
+            slideIndex += n;
+            const slides = document.getElementsByClassName("mySlides");
+
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            if (slideIndex < 1) {
+                slideIndex = slides.length;
+            }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        showSlides();
+    </script>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').innerHTML = `${hours}:${minutes}:${seconds}`;
+
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            const month = monthNames[now.getMonth()];
+            const day = now.getDate();
+            const year = now.getFullYear();
+            const dayName = dayOfWeek[now.getDay()];
+
+            document.getElementById('calendar').innerHTML = `${dayName}, ${month} ${day}, ${year}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+</body>
+
+</html>
